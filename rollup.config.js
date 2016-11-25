@@ -15,12 +15,18 @@ module.exports = {
   format: 'cjs',
   plugins: [
     includePaths(includePathOptions),
-    nodeResolve({ jsnext: true, main: true }),
+    nodeResolve({
+      jsnext: true,
+      main: true,
+      skip: [],
+      preferBuiltins: false,
+      browser: true
+    }),
     commonjs()
   ],
   external: [
     'choo',
     'choo/html',
-    'pixi.js'
+    'pixi.js',
   ]
 }
